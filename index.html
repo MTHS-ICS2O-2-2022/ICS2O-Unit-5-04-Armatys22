@@ -1,63 +1,104 @@
 <!DOCTYPE html>
-<!-- ICS2O-Unit5-04-->
-<html lang="en-ca">
-<head>
-  <meta charset="utf-8" />
-  <meta name="description" content="Discount Price" />
-  <meta name="keywords" content="mths, ics2o" />
-  <meta name="author" content="Dominik Armatys" />
-  <meta name="viewpoint" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/style.css" />
-  <!-- Note the addition for the selection component-->
-  <link rel="stylesheet" href="./css/getmdl-select.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-orange.min.css" />
-  <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="./images.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="./images.png" />
-  <link rel="manifest" href="./site.webmanifest" />
-  <title>Age and Day Discount</title>
-</head>
-<body>
-  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
-  <script src="./js/script.js"></script>
-  <script src="./js/getmdl-select.js"></script>
-  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-    <header class="mdl-layout__header">
-      <div class="mdl-layout__header-row">
-        <span class="mdl-layout-title">Discount Price</span>
-      </div>
-    </header>
-    <main class="mdl-layout__content">
-      <h3>Enter age and day of the week</h3>
-      <!-- Numeric Textfield -->
-      <form action="#">
-        <div class="mdl-textfield mdl-js-textfield">
-          <input class="mdl-textfield__input" type="number" step=".01" placeholder="Enter Age Here"
-            pattern="-?[0-9]*(\.[0-9]+)?" id="age" aria-label="age" />
-          <span class="mdl-textfield__error">Input is not a number!</span>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Will check to see if you get a discount!" />
+    <meta name="keywords" content="mths, ics2o" />
+    <meta name="author" content="Dominic M." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/getmdl-select.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.yellow-cyan.min.css"
+    />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="./site.webmanifest" />
+    <!-- This is the title of the webpage -->
+    <title>Discount Checker</title>
+  </head>
+  <body>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/getmdl-select.js"></script>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- This is the header of the webpage -->
+          <span class="mdl-layout-title"><h3>Discount Checker</h3></span>
         </div>
-      </form>
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <select class="mdl-textfield__input" id="day" name="day">
-          <option></option>
-          <option value="monday">Monday</option>
-          <option value="tuesday">Tuesday</option>
-          <option value="wednesday">Wednesday</option>
-          <option value="thursday">Thursday</option>
-          <option value="friday">Friday</option>
-          <option value="saturday">Saturday</option>
-          <option value="sunday">Sunday</option>
-        </select>
-        <label class="mdl-textfield__label" for="day">Day Of The Week</label>
-      </div>
-      <!-- Raised button with ripple -->
-      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-        onclick="myButtonClicked()">
-        Calculate
-      </button>
-      <div id="price"></div>
-    </main>
-  </div>
-</body>
+      </header>
+      <main class="mdl-layout__content">
+        <div id="image">
+          <img
+            class="right-image"
+            src="images.png"
+            alt="calculator"
+          />
+        </div>
+        <div class="page-content">
+          <div id="instructions">Please enter the following:</div>
+        </div>
+        <!-- Simple Select with arrow -->
+        <div class="mdl-textfield mdl-js-textfield getmdl-select">
+          <input
+            type="text"
+            value=""
+            class="mdl-textfield__input"
+            id="day-selected"
+            readonly
+          />
+          <input type="hidden" value="" name="day-selected" />
+          <i class="mdl-icon-toggle__label material-icons"
+            >keyboard_arrow_down</i
+          >
+          <label for="sample2" class="mdl-textfield__label">Select a day</label>
+          <ul for="sample2" class="mdl-menu mdl-menu--bottom-left mdl-js-menu">
+            <li class="mdl-menu__item" data-val="one">Sunday</li>
+            <li class="mdl-menu__item" data-val="two">Monday</li>
+            <li class="mdl-menu__item" data-val="three">Tuesday</li>
+            <li class="mdl-menu__item" data-val="four">Wednesday</li>
+            <li class="mdl-menu__item" data-val="five">Thursday</li>
+            <li class="mdl-menu__item" data-val="six">Friday</li>
+            <li class="mdl-menu__item" data-val="seven">Saturday</li>
+          </ul>
+        </div>
+        <br />
+        <form action="#">
+          <div class="mdl-textfield mdl-js-textfield">
+            <!--This is where they type in the answer-->
+            <input
+              class="mdl-textfield__input"
+              type="text"
+              pattern="-?[0-9]*(\.[0-9]+)?"
+              id="age-entered"
+            />
+            <label class="mdl-textfield__label" for="age-entered"
+              >Enter your age ...</label
+            >
+            <span class="mdl-textfield__error">Input is not a number!</span>
+          </div>
+        </form>
+        <br />
+        <!-- Colored raised button -->
+        <button
+          class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+          onclick="myButtonClicked()"
+        >
+          Guess
+        </button>
+        <br />
+        <br />
+        <div class="page-content-answer">
+          <div id="answer"></div>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>

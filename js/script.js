@@ -1,22 +1,24 @@
-// Copyright (c) 2020 Mr.Coxall All rights reserved
+// Copyright (c) 2023 dom All rights reserved
 //
-// Created by: dom
-// Created on: May 2023
+// Created by: Dominik.
+// Created on: April 2023
 // This file contains the JS functions for index.html
 
 "use strict"
 
-function myButtonClicked() {
-  const userAge = document.getElementById("age").value
-  document.getElementById("age").innerHTML = userAge
-  const day = document.getElementById("day").value
-  document.getElementById("day").innerHTML = day
+/**
+ * This function uses a selection component from https://github.com/CreativeIT/getmdl-select
+ */
 
-  if (day == "tuesday" || day == "thursday" || (userAge > "12" && userAge < "21")) {
-    document.getElementById("price").innerHTML =
-      "You are eligible for discounted pricing."
+function myButtonClicked() {
+  // input
+  const age = parseInt(document.getElementById('age-entered').value)
+  const day = document.getElementById('day-selected').value
+
+  // process
+  if (day == "Tuesday" || day == "Thursday" || age > 12 && age < 21) {
+  document.getElementById('answer').innerHTML = "You get the student discount."
   } else {
-    document.getElementById("price").innerHTML =
-      "You are not eligible for discounted pricing."
+    document.getElementById('answer').innerHTML = "You must pay regular price."
   }
 }
